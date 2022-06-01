@@ -50,9 +50,6 @@ ThemeData lightTheme = ThemeData(
           fontSize: 20.0,
           fontWeight: FontWeight.bold),
       iconTheme: IconThemeData(color: Colors.black)),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Colors.deepOrange,
-  ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
     selectedItemColor: Colors.deepOrange,

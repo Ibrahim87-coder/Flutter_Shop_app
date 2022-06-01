@@ -25,17 +25,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<BoardingModel> boarding = [
     BoardingModel(
-        title: 'On Board 1 Title',
-        image: 'assets/images/onboard_1.jpg',
-        body: 'On Board 1 Body'),
+        title: 'Order Your Favourites',
+        image: 'assets/images/Online_Shoping_1.jpg',
+        body: 'When you order Eat Street, we\'ll hook you up with exclusive coupons and special rewards.'),
     BoardingModel(
-        title: 'On Board 2 Title',
-        image: 'assets/images/onboard_1.jpg',
-        body: 'On Board 2 Body'),
+        title: 'Fast Delivery',
+        image: 'assets/images/Online_Shoping_2.jpg',
+        body: 'We provide the fatest delivery system. We will reach food in your home within 30 minutes.'),
     BoardingModel(
-        title: 'On Board 3 Title',
-        image: 'assets/images/onboard_1.jpg',
-        body: 'On Board 3 Body'),
+        title: 'Easy Payment',
+        image: 'assets/images/Online_Shoping_3.jpg',
+        body: 'Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant animal'),
   ];
 
   bool isLast = false;
@@ -47,17 +47,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
-          TextButton(
-              onPressed: () {
-                navigateAndFinish(context, const ShopLoginScreen());
+          defaultTextButton(
+              function: ()
+              {
+                navigateAndFinish(context, ShopLoginScreen());
               },
-              child: const Text('SKIP'))
+              text: 'skip'),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
-
           children: [
             Expanded(
               child: PageView.builder(
@@ -78,7 +78,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     buildBoardingItem(boarding[index]),
                 itemCount: boarding.length,
               ),
-
             ),
             const SizedBox(
               height: 40.0,
@@ -100,7 +99,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 FloatingActionButton(
                   onPressed: () {
                     if (isLast) {
-                      navigateAndFinish(context, const ShopLoginScreen());
+                      navigateAndFinish(context, ShopLoginScreen());
                     } else {
                       boardController.nextPage(
                         duration: const Duration(
@@ -121,34 +120,39 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 }
 
-Widget buildBoardingItem(BoardingModel model) => Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Image(
-            image: AssetImage('${model.image}'),
+Widget buildBoardingItem(BoardingModel model) => Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Image(
+              image: AssetImage('${model.image}'),
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 30.0,
-        ),
-        Text(
-          '${model.title}',
-          style: const TextStyle(
-            fontSize: 24.0,
+          const SizedBox(
+            height: 30.0,
           ),
-        ),
-        const SizedBox(
-          height: 15.0,
-        ),
-        Text(
-          '${model.body}',
-          style: const TextStyle(
-            fontSize: 14.0,
+          Text(
+            '${model.title}',
+            style: const TextStyle(
+              fontSize: 24.0,
+
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 30.0,
-        ),
-      ],
+          const SizedBox(
+            height: 16.0,
+          ),
+          Text(
+            '${model.body}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 15.0,
+              color: Colors.grey
+            ),
+          ),
+          const SizedBox(
+            height: 30.0,
+          ),
+        ],
+      ),
     );
