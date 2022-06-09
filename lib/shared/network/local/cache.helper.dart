@@ -7,15 +7,18 @@ class CacheHelper {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  static Future<bool?>? putData(
-      {required String key, required bool value}) async {
+  static Future<bool?>? putData({
+    required String key,
+    required bool value
+  })
+  async {
     return await sharedPreferences?.setBool(key, value);
   }
 
-  static bool? getData({
+  static Object? getData({
     required String key,
   }) {
-    return sharedPreferences?.getBool(key);
+    return sharedPreferences?.get(key);
   }
 
   static Future<bool> saveData({
